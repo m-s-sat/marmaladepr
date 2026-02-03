@@ -69,12 +69,14 @@ export function Navigation() {
             transition={{ delay: 0.5 }}
             className="hidden md:block"
           >
-            <Button
-              onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-8 py-3 transition-all duration-300 gold-glow-hover tracking-wider text-sm rounded-md"
+            <a
+              href="https://www.opentable.com/marmalade"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-8 py-3 transition-all duration-300 gold-glow-hover tracking-wider text-sm rounded-md inline-block"
             >
-              View Menu
-            </Button>
+              Reserve
+            </a>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -115,15 +117,14 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-12 py-4 mt-4 rounded-md inline-block w-full"
+                <a
+                  href="https://www.opentable.com/marmalade"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-12 py-4 mt-4 rounded-md inline-block"
                 >
-                  View Menu
-                </Button>
+                  Reserve
+                </a>
               </motion.div>
             </div>
           </motion.div>
