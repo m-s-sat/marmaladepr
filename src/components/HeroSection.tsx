@@ -69,7 +69,7 @@ export function HeroSection() {
         }}
         animate={{ y: [0, 15, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-primary/70 hover:text-primary transition-colors cursor-pointer"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-primary/70 hover:text-primary transition-colors cursor-pointer z-20"
       >
         <span className="text-xs tracking-widest uppercase font-body">Scroll</span>
         <ChevronDown className="w-6 h-6" />
