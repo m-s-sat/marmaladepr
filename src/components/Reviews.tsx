@@ -62,7 +62,7 @@ export function Reviews() {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">
             Guest <span className="text-gradient">Reviews</span>
           </h2>
-          
+
           {/* Overall Rating */}
           <div className="flex items-center justify-center gap-4">
             <div className="flex">
@@ -86,7 +86,7 @@ export function Reviews() {
         >
           <Quote className="absolute -top-8 left-0 text-gold/20 w-24 h-24" />
 
-          <div className="relative overflow-hidden py-8">
+          <div className="relative overflow-hidden py-8 min-h-[350px] flex items-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -96,7 +96,7 @@ export function Reviews() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="text-center px-8 md:px-16"
+                className="text-center px-8 md:px-16 w-full"
               >
                 <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 font-light italic">
                   "{reviews[currentIndex].text}"
@@ -107,11 +107,10 @@ export function Reviews() {
                       <Star
                         key={i}
                         size={16}
-                        className={`${
-                          i < reviews[currentIndex].rating
-                            ? "text-gold fill-gold"
-                            : "text-muted"
-                        }`}
+                        className={`${i < reviews[currentIndex].rating
+                          ? "text-gold fill-gold"
+                          : "text-muted"
+                          }`}
                       />
                     ))}
                   </div>
@@ -132,7 +131,7 @@ export function Reviews() {
             >
               <ChevronLeft size={20} />
             </button>
-            
+
             {/* Dots */}
             <div className="flex gap-2">
               {reviews.map((_, index) => (
@@ -142,9 +141,8 @@ export function Reviews() {
                     setDirection(index > currentIndex ? 1 : -1);
                     setCurrentIndex(index);
                   }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-gold w-6" : "bg-muted hover:bg-gold/50"
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-gold w-6" : "bg-muted hover:bg-gold/50"
+                    }`}
                 />
               ))}
             </div>
