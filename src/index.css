@@ -1,80 +1,103 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* NOIRE - Dark Luxury Restaurant Design System */
-
 @layer base {
   :root {
-    /* Primary Palette - Marmalade Warm Luxury */
-    --background: 0 0% 12%; /* Warm Charcoal #1f1f1f approx - let's go a bit darker/warmer. HSL 0 0% 12% is dark grey. "Warm Charcoal" usually has a bit of brown/orange hue. Let's try HSL 20 5% 10% */
-    --background: 20 6% 10%;
-    --foreground: 36 30% 96%; /* Warm white */
+    /* Premium Restaurant Color Palette */
+    --background: 30 10% 4%;
+    --foreground: 40 20% 95%;
 
-    --card: 20 6% 12%;
-    --card-foreground: 36 30% 96%;
+    --card: 30 10% 8%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 20 6% 12%;
-    --popover-foreground: 36 30% 96%;
+    --popover: 30 10% 6%;
+    --popover-foreground: 40 20% 95%;
 
-    /* Gold Accents - Adjusted to #D4AF37 (HSL: 46 65% 52%) */
-    --primary: 46 65% 52%;
-    --primary-foreground: 20 6% 10%;
+    /* Deep burgundy/wine red */
+    --primary: 345 76% 32%;
+    --primary-foreground: 40 20% 95%;
 
-    --secondary: 20 6% 16%;
-    --secondary-foreground: 36 30% 90%;
+    /* Champagne gold */
+    --secondary: 43 72% 52%;
+    --secondary-foreground: 30 10% 4%;
 
-    --muted: 20 6% 20%;
-    --muted-foreground: 36 10% 70%;
+    --muted: 30 10% 15%;
+    --muted-foreground: 40 10% 60%;
 
-    --accent: 46 65% 52%;
-    --accent-foreground: 20 6% 10%;
+    /* Gold accent */
+    --accent: 43 72% 52%;
+    --accent-foreground: 30 10% 4%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 20% 95%;
 
-    --border: 20 6% 20%;
-    --input: 20 6% 20%;
-    --ring: 46 65% 52%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 43 72% 52%;
 
-    --radius: 0rem;
+    --radius: 0.5rem;
 
-    /* Extended Gold Palette */
-    --gold: 46 65% 52%;
-    --gold-light: 46 65% 75%;
-    --gold-dark: 46 65% 35%;
-    --gold-glow: 46 65% 52%;
+    /* Custom premium tokens */
+    --burgundy: 345 76% 32%;
+    --burgundy-light: 345 60% 45%;
+    --burgundy-dark: 345 80% 20%;
+    --gold: 43 72% 52%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 43 70% 35%;
+    --cream: 40 20% 95%;
+    --charcoal: 30 10% 8%;
+    --charcoal-light: 30 10% 15%;
 
-    /* Extended Dark Palette */
-    --charcoal: 20 6% 12%;
-    --charcoal-light: 20 6% 18%;
+    /* Glass morphism */
+    --glass-bg: 30 10% 8% / 0.8;
+    --glass-border: 40 20% 95% / 0.1;
 
-    /* Glass Effects */
-    --glass-bg: 20 6% 10% / 0.7;
-    --glass-border: 46 65% 75% / 0.1;
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(43 72% 52% / 0.15);
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
 
-    /* Typography */
-    --font-display: "Playfair Display", serif;
-    --font-accent: "Cinzel", serif;
-    --font-body: "Inter", sans-serif;
-
-    /* Sidebar - matching dark theme */
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 43 76% 52%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 43 76% 52%;
+    /* Sidebar tokens */
+    --sidebar-background: 30 10% 6%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 345 76% 32%;
+    --sidebar-primary-foreground: 40 20% 95%;
+    --sidebar-accent: 43 72% 52%;
+    --sidebar-accent-foreground: 30 10% 4%;
+    --sidebar-border: 30 10% 20%;
+    --sidebar-ring: 43 72% 52%;
   }
 
   .dark {
-    /* Same as root - this is a dark-first design */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
+    --background: 30 10% 4%;
+    --foreground: 40 20% 95%;
+    --card: 30 10% 8%;
+    --card-foreground: 40 20% 95%;
+    --popover: 30 10% 6%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 345 76% 32%;
+    --primary-foreground: 40 20% 95%;
+    --secondary: 43 72% 52%;
+    --secondary-foreground: 30 10% 4%;
+    --muted: 30 10% 15%;
+    --muted-foreground: 40 10% 60%;
+    --accent: 43 72% 52%;
+    --accent-foreground: 30 10% 4%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 20% 95%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 43 72% 52%;
+    --sidebar-background: 30 10% 6%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 345 76% 32%;
+    --sidebar-primary-foreground: 40 20% 95%;
+    --sidebar-accent: 43 72% 52%;
+    --sidebar-accent-foreground: 30 10% 4%;
+    --sidebar-border: 30 10% 20%;
+    --sidebar-ring: 43 72% 52%;
   }
 }
 
@@ -88,190 +111,110 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Typography Classes */
-  .font-display {
-    font-family: var(--font-display);
-  }
-
-  .font-accent {
-    font-family: var(--font-accent);
-  }
-
-  .font-body {
-    font-family: var(--font-body);
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
   }
 }
 
 @layer components {
-  /* Hero Title - Massive Impact */
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 12vw, 12rem);
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-  }
-
-  /* Section Headers - Strong Presence */
-  .section-header {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 6rem);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
-
-  /* Subheadings - Elegant */
-  .subheading {
-    font-family: var(--font-accent);
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
-
-  /* Price Display - Premium */
-  .price-display {
-    font-family: var(--font-accent);
-    font-size: clamp(1.25rem, 2vw, 2rem);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: hsl(var(--primary));
-  }
-
-  /* Gold Glow Effect */
-  .gold-glow {
-    box-shadow: 0 0 30px hsl(var(--gold) / 0.4);
-  }
-
-  .gold-glow-hover:hover {
-    box-shadow: 0 0 40px hsl(var(--gold) / 0.5);
-  }
-
-  /* Gold Text Gradient */
-  .gold-gradient-text {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--gold-light)),
-      hsl(var(--gold)),
-      hsl(var(--gold-dark))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Glass Card */
-  .glass-card {
+  .glass {
+    @apply backdrop-blur-md border;
     background: hsl(var(--glass-bg));
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--glass-border));
+    border-color: hsl(var(--glass-border));
   }
 
-  /* Gold Border Glow on Hover */
-  .hover-gold-border {
-    position: relative;
-    transition: all 0.3s ease;
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
   }
 
-  .hover-gold-border::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid transparent;
-    transition:
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
-    pointer-events: none;
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-burgundy-light transition-all duration-300;
   }
 
-  .hover-gold-border:hover::after {
-    border-color: hsl(var(--gold) / 0.5);
-    box-shadow: 0 0 30px hsl(var(--gold) / 0.3);
+  .btn-gold {
+    @apply text-secondary-foreground transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
   }
 
-  /* Navigation Link */
-  .nav-link {
-    position: relative;
-    color: hsl(var(--secondary-foreground));
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    font-family: var(--font-body);
-    font-weight: 400;
+  .btn-gold:hover {
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
   }
 
-  .nav-link:hover {
-    color: hsl(var(--primary));
+  .btn-outline-gold {
+    @apply border-2 bg-transparent transition-all duration-300;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
   }
 
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: hsl(var(--primary));
-    transition: width 0.3s ease;
+  .btn-outline-gold:hover {
+    background: hsl(var(--gold));
+    color: hsl(var(--charcoal));
   }
 
-  .nav-link:hover::after {
-    width: 100%;
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
   }
 
-  /* Gradient Overlays */
-  .overlay-dark {
-    background: linear-gradient(
-      to bottom,
-      hsl(0 0% 4% / 0.7) 0%,
-      hsl(0 0% 4% / 0.5) 50%,
-      hsl(0 0% 4% / 0.8) 100%
-    );
-  }
-
-  .overlay-dark-gold {
-    background: linear-gradient(
-      135deg,
-      hsl(0 0% 4% / 0.85) 0%,
-      hsl(43 76% 52% / 0.15) 100%
-    );
-  }
-
-  /* Divider Line Gold Gradient */
-  .divider-gold {
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      hsl(var(--gold)) 50%,
-      transparent 100%
-    );
+  .container-custom {
+    @apply max-w-7xl mx-auto;
   }
 }
 
 @layer utilities {
-  /* Animation Delays */
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-  .animation-delay-600 {
-    animation-delay: 600ms;
+  .parallax {
+    transform-style: preserve-3d;
   }
 
-  /* Text Shadow for Readability */
-  .text-shadow {
-    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.5);
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
   }
 
-  .text-shadow-lg {
-    text-shadow: 0 4px 20px hsl(0 0% 0% / 0.7);
+  .bg-burgundy-light {
+    background-color: hsl(var(--burgundy-light));
+  }
+
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+
+  .bg-charcoal-light {
+    background-color: hsl(var(--charcoal-light));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .border-burgundy {
+    border-color: hsl(var(--burgundy));
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
   }
 }

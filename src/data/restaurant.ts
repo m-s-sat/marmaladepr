@@ -1,104 +1,169 @@
-export const restaurant = {
+import dish1 from "@/assets/dish-1.jpg";
+import dish2 from "@/assets/dish-2.jpg";
+import dish3 from "@/assets/dish-3.jpg";
+import cocktail1 from "@/assets/cocktail-1.jpg";
+
+export const restaurantInfo = {
   name: "Marmalade",
-  tagline: "Sustainable Fine Dining & Wine Bar",
-  concept: "Modern Sustainable Cuisine", // Refined concept
-
-  description: "A world-renowned, sustainable fine dining destination in San Juan, Puerto Rico. Known for its warm, lush atmosphere, tasting menus, and colorful plating that celebrates global flavors.",
-
-  fullDescription: "Marmalade is more than a restaurant; it is a multi-course journey through the senses. Chef Peter Schintler's avant-garde approach blends organic, global ingredients with a lush, warm atmosphere. From our signature White Bean Soup to our intricate tasting menus, every detail is crafted to offer a sustainable, luxury dining experience in the heart of Old San Juan.",
-
-  phone: "+1 787-724-3969",
-  email: "peter@marmaladepr.com",
-  address: "317 C. de la Fortaleza",
-  city: "San Juan",
-  state: "Puerto Rico 00901",
-
-  hours: {
-    monday: "5:00 PM – 10:00 PM",
-    tuesday: "5:00 PM – 10:00 PM",
-    wednesday: "5:00 PM – 10:00 PM",
-    thursday: "5:00 PM – 10:00 PM",
-    friday: "5:00 PM – 10:00 PM",
-    saturday: "5:00 PM – 10:00 PM",
-    sunday: "5:00 PM – 10:00 PM"
-  },
-
+  tagline: "A Symphony of Flavors",
+  description: "Stylish restaurant featuring an international menu with creative plates, plus cocktails & wine",
   rating: 4.8,
   reviewCount: 1928,
-  seats: 60,
-
-  awards: [
-    "TripAdvisor Travelers' Choice Best of the Best",
-    "Top Sustainable Fine Dining",
-    "Chef Peter Schintler - Executive Chef"
-  ],
-
-  testimonials: [
-    {
-      text: "The White Bean Soup is life-changing. An absolute must-visit in San Juan.",
-      author: "James Beard Foundation",
-      source: "Review"
-    },
-    {
-      text: "A masterclass in sustainable fine dining. The tasting menu is a journey of flavors.",
-      author: "Travel & Leisure",
-      source: "Feature"
-    },
-    {
-      text: "Lush, organic, and completely unique. One of the best meals of my life.",
-      author: "Conde Nast Traveler",
-      source: "Editor's Pick"
-    }
-  ]
+  priceRange: "$100+",
+  category: "Fine Dining Restaurant",
+  address: "317 C. de la Fortaleza, San Juan, 00901, Puerto Rico",
+  phone: "+1 787-724-3969",
+  email: "reservations@marmaladepr.com",
+  website: "marmaladepr.com",
+  plusCode: "FV8P+6M San Juan, Puerto Rico",
+  services: ["Dine-in"],
+  hours: {
+    monday: "5:00 PM - 10:00 PM",
+    tuesday: "5:00 PM - 10:00 PM",
+    wednesday: "5:00 PM - 10:00 PM",
+    thursday: "5:00 PM - 10:00 PM",
+    friday: "5:00 PM - 10:00 PM",
+    saturday: "5:00 PM - 10:00 PM",
+    sunday: "5:00 PM - 10:00 PM",
+  },
+  openingHour: 17,
+  closingHour: 22,
+  reservationUrl: "https://www.opentable.com",
+  social: {
+    instagram: "https://instagram.com/marmaladepr",
+    facebook: "https://facebook.com/marmaladepr",
+    twitter: "https://twitter.com/marmaladepr",
+  },
+  stats: {
+    yearsInBusiness: 15,
+    dishesServed: 50000,
+    happyCustomers: 25000,
+    awards: 12,
+  },
 };
 
-export const featuredDishes = [
+export const menuCategories = ["All", "Appetizers", "Main Course", "Desserts", "Cocktails"];
+
+export interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  tags: string[];
+  isChefRecommended?: boolean;
+}
+
+export const menuItems: MenuItem[] = [
   {
-    name: "The White Bean Soup",
-    description: "Our signature dish. Creamy white beans, scallions, black truffle oil, and pancetta dust.",
-    price: "$18",
-    tags: ["Signature", "Must Try"]
+    id: "1",
+    name: "Seared Duck Breast",
+    description: "Pan-seared duck with citrus glaze, julienne vegetables, and truffle jus",
+    price: 48,
+    category: "Main Course",
+    image: dish1,
+    tags: ["Gluten-Free"],
+    isChefRecommended: true,
   },
   {
-    name: "Global Tasting Menu",
-    description: "A 5-course journey through global flavors, featuring sustainable, organic ingredients.",
-    price: "$125",
-    tags: ["Experience", "Popular"]
+    id: "2",
+    name: "Golden Scallops",
+    description: "Pan-seared diver scallops with beetroot purée, microgreens, and gold leaf",
+    price: 52,
+    category: "Appetizers",
+    image: dish2,
+    tags: ["Gluten-Free", "Signature"],
+    isChefRecommended: true,
   },
   {
-    name: "Poached Lobster",
-    description: "Caribbean lobster, coconut broth, lemongrass, ginger, and basil oil.",
-    price: "$45",
-    tags: ["Fresh", "Seafood"]
-  }
+    id: "3",
+    name: "Chocolate Fondant",
+    description: "Molten dark chocolate cake with 24k gold leaf, raspberry coulis",
+    price: 22,
+    category: "Desserts",
+    image: dish3,
+    tags: ["Vegetarian"],
+    isChefRecommended: true,
+  },
+  {
+    id: "4",
+    name: "The Marmalade Old Fashioned",
+    description: "House bourbon infused with orange marmalade, bitters, luxardo cherry",
+    price: 18,
+    category: "Cocktails",
+    image: cocktail1,
+    tags: ["Signature"],
+    isChefRecommended: false,
+  },
+  {
+    id: "5",
+    name: "Wagyu Beef Tartare",
+    description: "A5 Wagyu with quail egg, capers, shallots, and toasted brioche",
+    price: 38,
+    category: "Appetizers",
+    image: dish1,
+    tags: ["Signature"],
+  },
+  {
+    id: "6",
+    name: "Lobster Thermidor",
+    description: "Whole Maine lobster with cognac cream, gruyère gratin, asparagus",
+    price: 78,
+    category: "Main Course",
+    image: dish2,
+    tags: ["Gluten-Free"],
+  },
 ];
 
-export const tastingMenu = {
-  title: "The Marmalade Experience",
-  description: "A curated 5-course journey by Chef Peter Schintler",
-  price: "$125",
-  wineParring: "+$65 Wine Pairing",
-  courses: [
-    { number: 1, name: "Amuse-Bouche", description: "Chef's daily creation", dietary: [] },
-    { number: 2, name: "The White Bean Soup", description: "Sustainably sourced white beans, truffle oil", dietary: ["Vegetarian Option"] },
-    { number: 3, name: "Sea Bass crudo", description: "Mosaic of local catch, passion fruit vinaigrette", dietary: ["GF"] },
-    { number: 4, name: "Braised Short Rib", description: "Slow-cooked, truffle polenta, red wine reduction", dietary: [] },
-    { number: 5, name: "Chocolate Decadence", description: "Valrhona chocolate textures, sea salt", dietary: ["Vegetarian"] }
-  ]
-};
+export interface Review {
+  id: string;
+  name: string;
+  rating: number;
+  text: string;
+  date: string;
+  platform: "Google" | "TripAdvisor" | "Yelp";
+}
 
-export const aLaCarteItems = [
-  { name: "White Bean Soup", description: "Truffle oil, pancetta dust (vegetarian available)", price: "$18", tags: ["Signature"] },
-  { name: "Heirloom Tomato Salad", description: "Local tomatoes, burrata, basil pesto", price: "$22", tags: ["Vegetarian", "Organic"] },
-  { name: "Hand-Made Pasta", description: "Rabbit ragout, wild mushrooms, parmesan", price: "$32", tags: ["Fresh"] },
-  { name: "Local Snapper", description: "Pan-seared, quinoa salad, citrus emulsion", price: "$38", tags: ["Sustainable"] },
-  { name: "Grass-Fed Beef Tenderloin", description: "Root vegetables, bordelaise sauce", price: "$48", tags: ["Premium"] },
-  { name: "Vegan Risotto", description: "Seasonal vegetables, nutritional yeast, herbs", price: "$28", tags: ["Vegan"] }
+export const reviews: Review[] = [
+  {
+    id: "1",
+    name: "Michael R.",
+    rating: 5,
+    text: "An absolutely transcendent dining experience. The tasting menu was a journey through flavors I've never experienced before. Chef's artistry is unmatched.",
+    date: "2 weeks ago",
+    platform: "Google",
+  },
+  {
+    id: "2",
+    name: "Sarah L.",
+    rating: 5,
+    text: "Perfect anniversary dinner. The ambiance, service, and food were all impeccable. The scallops were life-changing!",
+    date: "1 month ago",
+    platform: "TripAdvisor",
+  },
+  {
+    id: "3",
+    name: "David K.",
+    rating: 5,
+    text: "Worth every penny. This is fine dining at its absolute finest. The wine pairing was exceptional.",
+    date: "3 weeks ago",
+    platform: "Google",
+  },
+  {
+    id: "4",
+    name: "Elena M.",
+    rating: 5,
+    text: "A must-visit in San Juan. The chocolate fondant alone is worth the trip. Stunning presentation on every dish.",
+    date: "1 week ago",
+    platform: "Yelp",
+  },
 ];
 
-export const cocktails = [
-  { name: "Marmalade Martini", description: "Vodka, passion fruit, lime, prosseco float", price: "$16" },
-  { name: "Old San Juan", description: "Aged rum, bitters, orange zest, smoked", price: "$18" },
-  { name: "Spicy Margarita", description: "Tequila, jalapeno infusion, agave, tajin rim", price: "$15" }
+export const galleryImages = [
+  { id: "1", category: "Food", alt: "Seared duck breast" },
+  { id: "2", category: "Food", alt: "Golden scallops" },
+  { id: "3", category: "Food", alt: "Chocolate fondant" },
+  { id: "4", category: "Drinks", alt: "Signature cocktail" },
+  { id: "5", category: "Interior", alt: "Restaurant interior" },
 ];
-

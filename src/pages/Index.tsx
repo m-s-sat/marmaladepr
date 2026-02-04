@@ -1,27 +1,25 @@
-import { Preloader } from "@/components/Preloader";
 import { Navigation } from "@/components/Navigation";
-import { HeroSection } from "@/components/HeroSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { FeaturedDishesSection } from "@/components/FeaturedDishesSection";
-import { MenuSection } from "@/components/MenuSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { GallerySection } from "@/components/GallerySection";
-import { ContactSection } from "@/components/ContactSection";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Menu } from "@/components/Menu";
+import { Gallery } from "@/components/Gallery";
+import { Reviews } from "@/components/Reviews";
+import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <Preloader />
+    <div className="min-h-screen bg-background text-foreground">
+      <ScrollProgress />
       <Navigation />
       <main>
-        <HeroSection />
-        <ExperienceSection />
-        <FeaturedDishesSection />
-        <MenuSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <ContactSection />
+        <Hero />
+        <About />
+        <Menu />
+        <Gallery />
+        <Reviews />
+        <Contact />
       </main>
       <Footer />
     </div>

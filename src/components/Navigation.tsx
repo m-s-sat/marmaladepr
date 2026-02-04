@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { restaurant } from "@/data/restaurant";
+import { restaurantInfo } from "@/data/restaurant";
 
 const navItems = [
-  { label: "About", href: "#experience" },
-  { label: "Menu", href: "#menu" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Menu", href: "#menu" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Reviews", href: "#reviews" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
@@ -24,66 +24,70 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass py-3" : "bg-transparent py-6"
           }`}
       >
-        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="container-custom flex items-center justify-between px-4 md:px-8">
           {/* Logo */}
           <motion.a
-            href="#"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-2xl font-accent tracking-[0.2em] text-primary"
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("#home");
+            }}
+            className="text-2xl md:text-3xl font-serif font-bold text-gradient cursor-pointer"
+            whileHover={{ scale: 1.05 }}
           >
-            {restaurant.name}
+            Marmalade
           </motion.a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
-            {navItems.map((item, index) => (
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
               <motion.a
-                key={item.label}
+                key={item.name}
                 href={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className="nav-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
+                className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors relative group"
+                whileHover={{ y: -2 }}
               >
-                {item.label}
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
-          </div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="hidden lg:block"
-          >
-            <a
-              href="https://www.opentable.com/marmalade"
+            <motion.a
+              href={restaurantInfo.reservationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-8 py-3 transition-all duration-300 gold-glow-hover tracking-wider text-sm rounded-md inline-block"
+              className="btn-gold px-6 py-2.5 rounded-full text-sm font-semibold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Reserve
-            </a>
-          </motion.div>
+              Book via OpenTable
+            </motion.a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2"
+            className="md:hidden p-2 text-foreground"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -94,39 +98,40 @@ export function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 lg:hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25 }}
+            className="fixed inset-0 z-40 glass md:hidden"
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center justify-center h-full gap-8">
               {navItems.map((item, index) => (
                 <motion.a
-                  key={item.label}
+                  key={item.name}
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-display text-foreground hover:text-primary transition-colors"
+                  className="text-2xl font-serif text-foreground hover:text-gold transition-colors"
                 >
-                  {item.label}
+                  {item.name}
                 </motion.a>
               ))}
-              <motion.div
+              <motion.a
+                href={restaurantInfo.reservationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.6 }}
+                className="btn-gold px-8 py-3 rounded-full text-lg font-semibold mt-4"
               >
-                <a
-                  href="https://www.opentable.com/marmalade"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary hover:bg-gold-dark text-primary-foreground font-semibold px-12 py-4 mt-4 rounded-md inline-block"
-                >
-                  Reserve
-                </a>
-              </motion.div>
+                Book via OpenTable
+              </motion.a>
             </div>
           </motion.div>
         )}
