@@ -11,7 +11,7 @@ import { restaurant } from "@/data/restaurant";
 
 export function TestimonialsSection() {
   return (
-    <section id="gallery" className="py-16 sm:py-24 lg:py-32 bg-charcoal relative overflow-hidden">
+    <section id="reviews" className="py-16 sm:py-24 lg:py-32 bg-charcoal relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] lg:w-[600px] h-[300px] sm:h-[400px] lg:h-[600px] bg-primary/5 rounded-full blur-3xl" />
 

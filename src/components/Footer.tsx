@@ -19,7 +19,7 @@ export function Footer() {
             {/* Awards - Removed for casual vibe */}
             <div className="flex gap-2 sm:gap-3 flex-wrap">
               <span className="text-[10px] sm:text-xs text-primary border border-primary/30 px-2 sm:px-3 py-1 rounded-full">
-                Rated 4.9/5
+                Rated {restaurant.rating}/5
               </span>
             </div>
           </div>

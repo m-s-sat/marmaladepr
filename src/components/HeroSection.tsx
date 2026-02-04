@@ -83,9 +83,9 @@ export function HeroSection() {
         className="absolute bottom-8 right-8 text-right hidden lg:block"
       >
         <p className="text-primary text-xl tracking-wider font-accent font-bold">
-          Rated 4.9/5
+          Rated {restaurant.rating}/5
         </p>
-        <p className="text-muted-foreground text-sm mt-1">by our neighbors</p>
+        <p className="text-muted-foreground text-sm mt-1">based on {restaurant.reviewCount.toLocaleString()} reviews</p>
       </motion.div>
     </section>
   );

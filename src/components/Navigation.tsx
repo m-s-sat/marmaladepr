@@ -8,6 +8,7 @@ const navItems = [
   { label: "About", href: "#experience" },
   { label: "Menu", href: "#menu" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -47,7 +48,7 @@ export function Navigation() {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-12">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.label}
@@ -67,7 +68,7 @@ export function Navigation() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="hidden md:block"
+            className="hidden lg:block"
           >
             <a
               href="https://www.opentable.com/marmalade"
@@ -82,7 +83,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -96,7 +97,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-background pt-24 px-6 lg:hidden"
           >
             <div className="flex flex-col items-center gap-8">
               {navItems.map((item, index) => (
